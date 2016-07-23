@@ -12,5 +12,6 @@ if (!empty($_REQUEST['hub_mode']) && $_REQUEST['hub_mode'] == 'subscribe' && $_R
 } else {
 
     $data = json_decode(file_get_contents("php://input"), true, 512, JSON_BIGINT_AS_STRING);
-    $myfile = file_put_contents('logs.txt', $data.PHP_EOL , FILE_APPEND);
+    $output = print_r($data,1);
+    $myfile = file_put_contents('logs.txt', $output.PHP_EOL , FILE_APPEND);
 }
